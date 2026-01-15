@@ -1,1 +1,0 @@
-export type DemoData = {numSuccessfulWithdrawals:number,finalBalance:number};

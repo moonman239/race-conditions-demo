@@ -1,11 +1,11 @@
-import { DemoData } from "./DemoDataType";
+import { DemoResult } from "../DemoResult";
 
 // unsafe.js
 const delay = (ms:number) => new Promise((r) => setTimeout(r, ms));
 
 let balance = 100;
 
-export async function runUnsafeDemo(): Promise<DemoData> {
+export async function runUnsafeDemo(): Promise<DemoResult> {
   balance = 100;
 
   async function withdraw(amount:number) {
@@ -25,7 +25,7 @@ export async function runUnsafeDemo(): Promise<DemoData> {
   const results = await Promise.all(withdrawals);
 
   return {
-    numSuccessfulWithdrawals: results.filter(Boolean).length,
-    finalBalance: balance,
+    successfulWithdrawals: results.filter(Boolean).length,
+    simulatedBalance: balance,
   };
 }
